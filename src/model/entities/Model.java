@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Model {
-	private int id;
+	private Integer id;
 	private String name;
 	private LocalDate releaseDate;
 	private int cc;
@@ -13,6 +13,14 @@ public class Model {
 	public Model() {
 	}
 	
+	public Model(String name, LocalDate releaseDate, int cc, Double price) {
+		id = null;
+		this.name = name;
+		this.releaseDate = releaseDate;
+		this.cc = cc;
+		this.price = price;
+	}
+
 	public Model(int id, String name, LocalDate releaseDate, int cc, Double price) {
 		this.id = id;
 		this.name = name;
@@ -20,7 +28,7 @@ public class Model {
 		this.cc = cc;
 		this.price = price;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
