@@ -54,6 +54,11 @@ public class DaoFunctions {
 		return category;
 	}
 	
+	public static Category findCategoryById(int id) {
+		Category category = catDao.findById(id);
+		return category;
+	}
+	
 	public static void listAllCategory() {
 		List<Category> list = catDao.findAll();
 		for (Category category : list) {
@@ -62,6 +67,7 @@ public class DaoFunctions {
 	}
 	
 	public static void insertModel() {
+		Scanner sc = new Scanner(System.in);
 		System.out.print("Insert new model data: "
 				+ "\nName: ");
 		String name = sc.next();
@@ -71,7 +77,9 @@ public class DaoFunctions {
 		int cavalary = sc.nextInt();
 		System.out.print("Price: ");
 		Double price = sc.nextDouble();
-		Model model = new Model(name,releaseDate,cavalary,price);
+		System.out.println("Category ID: ");
+		int categoryId = sc.nextInt();
+		Model model = new Model(name,releaseDate,cavalary,price, categoryId);
 		modDao.insert(model);
 		System.out.println(model);
 	}

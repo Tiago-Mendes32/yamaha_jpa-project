@@ -38,7 +38,7 @@ public class Program {
 				
 				//DaoFunctions.findCategory();
 				
-				DaoFunctions.listAllCategory();
+				//DaoFunctions.listAllCategory();
 				
 				//-------------------Model Functions---------------------------
 				
@@ -50,7 +50,22 @@ public class Program {
 				
 				//DaoFunctions.findModelById();
 				
+				//DaoFunctions.listAllModel();
+				
+				System.out.println("Iniciando testes");
+				//DaoFunctions.insertCategory();
+				//DaoFunctions.listAllCategory();
+				//DaoFunctions.deleteCategoryById();
+				//DaoFunctions.updateCategory();
+				
+				DaoFunctions.insertModel();
 				DaoFunctions.listAllModel();
+				DaoFunctions.insertModel();
+				DaoFunctions.updateModel();
+				DaoFunctions.deleteModelById();
+				DaoFunctions.listAllModel();
+				
+				
 				
 
 			}

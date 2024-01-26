@@ -28,12 +28,13 @@ public class ModelDaoJDBC implements ModelDao {
 		PreparedStatement st = null;
 
 		try {
-			st = conn.prepareStatement("INSERT INTO Model (name, releaseDate, cc, price) " + " VALUES" + " (?,?,?,?);");
+			st = conn.prepareStatement("INSERT INTO Model (name, releaseDate, cc, price, CategoryId) " + " VALUES" + " (?,?,?,?,?);");
 
 			st.setString(1, model.getName());
 			st.setDate(2, java.sql.Date.valueOf(model.getReleaseDate()));
 			st.setInt(3, model.getCc());
 			st.setDouble(4, model.getPrice());
+			st.setInt(5, model.getCategory().getId());
 			
 			int RowsAffected = st.executeUpdate();
 			if (RowsAffected > 0) {
@@ -52,13 +53,14 @@ public class ModelDaoJDBC implements ModelDao {
 		PreparedStatement st = null;
 
 		try {
-			st = conn.prepareStatement("UPDATE Model SET name=?, releaseDate=?, cc=?, price=? WHERE ID=?;");
+			st = conn.prepareStatement("UPDATE Model SET name=?, releaseDate=?, cc=?, price=?, CategoryId=? WHERE ID=?;");
 
 			st.setString(1, model.getName());
 			st.setDate(2, java.sql.Date.valueOf(model.getReleaseDate()));
 			st.setInt(3, model.getCc());
 			st.setDouble(4, model.getPrice());
-			st.setInt(5, model.getId());
+			st.setInt(5, model.getCategory().getId());
+			st.setInt(6, model.getId());
 			
 			System.out.println(model);
 			
@@ -148,7 +150,7 @@ public class ModelDaoJDBC implements ModelDao {
 	}
 
 	private Model instantiateModel(ResultSet rs) throws SQLException {
-		Model mod = new Model(rs.getInt("ID"), rs.getString("name"), rs.getDate("releaseDate").toLocalDate(), rs.getInt("cc"), rs.getDouble("price"));
+		Model mod = new Model(rs.getInt("ID"), rs.getString("name"), rs.getDate("releaseDate").toLocalDate(), rs.getInt("cc"), rs.getDouble("price"), rs.getInt("CategoryId"));
 		return mod;
 	}
 
