@@ -2,7 +2,6 @@ package application;
 
 import java.sql.Connection;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Scanner;
 
 import db.DB;
@@ -12,6 +11,7 @@ import model.DAO.DaoFactory;
 import model.DAO.ModelDao;
 import model.entities.Category;
 import model.entities.Model;
+import model.services.DaoFunctions;
 
 public class Program {
 
@@ -27,83 +27,30 @@ public class Program {
 				
 				CategoryDao catDao = DaoFactory.createCategoryDao(conn);
 				ModelDao modDao = DaoFactory.createModelDao(conn);
-				DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 				
-				//-----------------------------INSERT CATEGORY-------------------------------------
-				//System.out.print("Digite o nome da nova categoria de motos: ");
-				//cat = new Category(sc.next());
-				//catDao.insert(cat);
+				//-------------------Category Functions------------------------
 				
-				//---------------------------UPDATE CATEGORY--------------------------------------
-				//System.out.print("\nID from category: ");
-				//int id = sc.nextInt();
-				//cat = catDao.findById(id);
-				//System.out.print("\nNew name from category: ");
-				//String name = sc.next();
-				//cat.setName(name);
-				//catDao.update(cat);
+				//DaoFunctions.insertCategory();
 				
-				//---------------------------DELETE BY ID-----------------------------------------
-				//System.out.print("\nID from category: ");
-				//int id = sc.nextInt();
-				//catDao.deleteById(id);
+				//DaoFunctions.updateCategory();
 				
-				//---------------------------FIND CATEGORY BY ID-------------------------------------------
-				//System.out.print("\nID from category: ");
-				//int id = sc.nextInt();
-				//Category category = catDao.findById(id);
-				//System.out.println(category);
+				//DaoFunctions.deleteCategoryById();
 				
+				//DaoFunctions.findCategory();
 				
-				//----------------------------LIST ALL CATEGORIES-----------------------------------
-				//List<Category> list = catDao.findAll();
-				//for (Category category : list) {
-				//	System.out.println(category);
-				//}
+				DaoFunctions.listAllCategory();
 				
-				//-----------------------------INSERT MODEL-------------------------------------
-				//System.out.print("Name from nee model: ");
-				//String name = sc.next();
-				//System.out.print("Release date (dd/MM/yyyy): ");
-				//LocalDate releaseDate = LocalDate.parse(sc.next(), fmt);
-				//System.out.print("Cavalary(cc): ");
-				//int cavalary = sc.nextInt();
-				//System.out.print("Price: ");
-				//Double price = sc.nextDouble();
-				//Model model = new Model(name,releaseDate,cavalary,price);
-				//modDao.insert(model);
-				//System.out.println(model);
+				//-------------------Model Functions---------------------------
 				
-				//---------------------------UPDATE MODEL--------------------------------------
-				//System.out.print("\nID from model: ");
-				//int id = sc.nextInt();
-				//mod = modDao.findById(id);
-				//System.out.print("\nNew name from model: ");
-				//String name = sc.next();
-				//mod.setName(name);
-				//modDao.update(mod);
+				//DaoFunctions.insertModel();
 				
-				//---------------------------DELETE BY ID-----------------------------------------
-				//System.out.print("\nID from model: ");
-				//int id = sc.nextInt();
-				//modDao.deleteById(id);
+				//DaoFunctions.updateModel();
 				
-				//---------------------------FIND MODEL BY ID-------------------------------------------
-				//System.out.print("\nID from model: ");
-				//int id = sc.nextInt();
-				//Model model = modDao.findById(id);
-				//System.out.println(model);
+				//DaoFunctions.deleteModelById();
 				
-				//----------------------------LIST ALL MODELS-----------------------------------
-				//List<Model> list = modDao.findAll();
-				//for (Model model : list) {
-				//	System.out.println(model);
-				//}
+				//DaoFunctions.findModelById();
 				
-
-				
-				
-				
+				DaoFunctions.listAllModel();
 				
 
 			}
